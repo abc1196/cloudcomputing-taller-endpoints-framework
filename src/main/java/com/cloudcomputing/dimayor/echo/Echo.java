@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.example.echo;
+package com.cloudcomputing.dimayor.echo;
 
 import com.google.api.server.spi.auth.EspAuthenticator;
 import com.google.api.server.spi.auth.common.User;

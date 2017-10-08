@@ -16,7 +16,7 @@
 
 package com.cloudcomputing.dimayor.controller;
 
-import com.example.echo.Message;
+import com.cloudcomputing.dimayor.echo.Message;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiIssuer;
 import com.google.api.server.spi.config.ApiMethod;
@@ -28,8 +28,8 @@ import com.google.api.server.spi.config.Named;
 	version = "v1",
 	namespace = @ApiNamespace(
 			ownerDomain = "dimayor.surge.sh",
-			ownerName = "",
-			packagePath = ""),
+			ownerName = "dimayor.surge.sh",
+			packagePath = "com.cloudcomputing.dimayor"),
 	issuers = {
 			@ApiIssuer(
 					name = "firebase",

@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.example.echo;
+package com.cloudcomputing.dimayor.echo;
 
 /** The email bean that will be used in the getUserEmail response. */
 public class Email {
