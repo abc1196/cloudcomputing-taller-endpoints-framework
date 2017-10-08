@@ -25,7 +25,8 @@ public class Message {
     return this.message;
   }
 
-  public void setMessage(String message) {
+  public Message setMessage(String message) {
     this.message = message;
+    return this;
   }
 }

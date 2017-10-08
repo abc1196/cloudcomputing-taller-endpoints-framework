@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="dimayor-pu">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Hibernate scanning discovers all entities. -->
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dimayor?zeroDateTimeBehavior=convertToNull"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="root"/>
+			
+			<property name="hibernate.connection.pool_size" value="5"/>
+			
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            
+        </properties>
+    </persistence-unit>
+</persistence>
