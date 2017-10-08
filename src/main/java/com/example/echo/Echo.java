@@ -50,6 +50,13 @@ import com.google.api.server.spi.response.UnauthorizedException;
     )
 // [END echo_api_annotation]
 public class Echo {
+	
+	
+	@ApiMethod(name="_ah/start", path="_ah/start", httpMethod= ApiMethod.HttpMethod.GET)
+	public String start() {
+		return "";
+	}
+	
   /**
    * Echoes the received message back. If n is a non-negative integer, the message is copied that
    * many times in the returned message.
