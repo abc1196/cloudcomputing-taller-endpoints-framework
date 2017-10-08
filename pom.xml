@@ -10,8 +10,7 @@
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<groupId>com.example.echo</groupId>
-	<artifactId>echo</artifactId>
+	<groupId>com.cloudcomputing</groupId>
 
 	<properties>
 		<appengine.sdk.version>1.9.57</appengine.sdk.version>
@@ -159,4 +158,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<artifactId>dimayor</artifactId>
 </project>
