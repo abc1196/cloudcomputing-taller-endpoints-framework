@@ -74,7 +74,7 @@ public class TeamApiV1 {
 		TeamDTO teamDTO = ModelUtils.mapObjectToDTO(team, TeamDTO.class);
 		return teamDTO;
 	}
-	
+
 	@ApiMethod(name = "addTeam", path = "team", httpMethod = ApiMethod.HttpMethod.POST)
 	public Message addTeam(AddTeamDTO addTeamDTO) {
 
@@ -82,26 +82,25 @@ public class TeamApiV1 {
 
 		Team team = ModelUtils.mapObjectToDTO(addTeamDTO, Team.class);
 		boolean added = teamLogic.addTeam(team);
-		return new Message().setMessage(""+added);
+		return new Message().setMessage("" + added);
 	}
-	
+
 	@ApiMethod(name = "editTeam", path = "team", httpMethod = ApiMethod.HttpMethod.PUT)
-	public Message editTeam(AddTeamDTO addTeamDTO) {
-		
-		teamLogic = new TeamLogic();		
-		Team team = ModelUtils.mapObjectToDTO(addTeamDTO, Team.class);
+	public Message editTeam(TeamDTO teamDTO) {
+
+		teamLogic = new TeamLogic();
+		Team team = ModelUtils.mapObjectToDTO(teamDTO, Team.class);
 		boolean edited = teamLogic.editTeam(team);
-		return new Message().setMessage(""+edited);
+		return new Message().setMessage("" + edited);
 	}
-	
+
 	@ApiMethod(name = "deleteTeam", path = "team/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
 	public Message deleteTeam(@Named("id") Integer id) {
 
 		teamLogic = new TeamLogic();
 
 		boolean deleted = teamLogic.deleteTeam(id);
-		return new Message().setMessage(""+deleted);
+		return new Message().setMessage("" + deleted);
 	}
-	
 
 }
