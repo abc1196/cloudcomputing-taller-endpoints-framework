@@ -24,11 +24,11 @@ public class TeamLogic {
 	}
 	
 	public List<Team> getAllTeams(){
+		teamDAO = new TeamDAO();
 		return teamDAO.getAllTeams();
 	}
 	
-	public boolean editTeam(Integer id) {
-		Team team = teamDAO.getTeam(id);
+	public boolean editTeam(Team team) {
 		return teamDAO.editTeam(team);
 	}
 	

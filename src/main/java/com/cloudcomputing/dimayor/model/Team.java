@@ -81,33 +81,37 @@ public class Team implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
+    public Team setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Team setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Date getFundationYear() {
         return fundationYear;
     }
 
-    public void setFundationYear(Date fundationYear) {
+    public Team setFundationYear(Date fundationYear) {
         this.fundationYear = fundationYear;
+        return this;
     }
 
     public int getTitles() {
         return titles;
     }
 
-    public void setTitles(int titles) {
+    public Team setTitles(int titles) {
         this.titles = titles;
-    }
+        return this;
+    }    
 
     public Date getCreated() {
         return created;
@@ -121,8 +125,9 @@ public class Team implements Serializable {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public Team setUpdated(Date updated) {
         this.updated = updated;
+        return this;
     }
 
     @Override

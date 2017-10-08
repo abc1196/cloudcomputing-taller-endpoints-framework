@@ -3,6 +3,7 @@ package com.cloudcomputing.dimayor.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
@@ -26,8 +27,9 @@ public class TeamDAO {
 	}
 
 	public List<Team> getAllTeams() {
-		Session session = PersistenceManager.openSession();
-		session.getTransaction().begin();
+		//Session session = PersistenceManager.openSession();
+		EntityManager session = PersistenceManager.openSessionEM();
+		session.getTransaction().begin();		
 
 		List<Team> teams = null;
 		TypedQuery<Team> query = session.createNamedQuery("Team.findAll", Team.class);
