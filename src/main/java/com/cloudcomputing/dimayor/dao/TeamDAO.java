@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.cloudcomputing.dimayor.model.Team;
+import com.cloudcomputing.dimayor.dao.PersistenceManager;
 
 public class TeamDAO {
 

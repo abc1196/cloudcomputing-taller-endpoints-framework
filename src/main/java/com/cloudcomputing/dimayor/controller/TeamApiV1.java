@@ -17,6 +17,7 @@
 package com.cloudcomputing.dimayor.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.cloudcomputing.dimayor.dto.AddTeamDTO;
@@ -81,6 +82,7 @@ public class TeamApiV1 {
 		teamLogic = new TeamLogic();
 
 		Team team = ModelUtils.mapObjectToDTO(addTeamDTO, Team.class);
+		team.setCreated(new Date());
 		boolean added = teamLogic.addTeam(team);
 		return new Message().setMessage("" + added);
 	}

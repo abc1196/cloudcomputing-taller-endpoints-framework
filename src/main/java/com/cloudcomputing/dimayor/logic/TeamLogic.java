@@ -15,11 +15,13 @@ public class TeamLogic {
 	public TeamLogic() {		
 	}
 
-	public boolean addTeam(Team team) {		
+	public boolean addTeam(Team team) {
+		teamDAO = new TeamDAO();
 		return teamDAO.addTeam(team);		
 	}
 	
 	public Team getTeam(Integer id) {
+		teamDAO = new TeamDAO();
 		return teamDAO.getTeam(id);
 	}
 	
@@ -29,10 +31,12 @@ public class TeamLogic {
 	}
 	
 	public boolean editTeam(Team team) {
+		teamDAO = new TeamDAO();
 		return teamDAO.editTeam(team);
 	}
 	
 	public boolean deleteTeam(Integer id) {
+		teamDAO = new TeamDAO();
 		Team team = teamDAO.getTeam(id);
 		return teamDAO.deleteTeam(team);
 	}
