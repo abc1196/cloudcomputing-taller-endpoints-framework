@@ -3,6 +3,7 @@ package com.cloudcomputing.dimayor.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -11,23 +12,29 @@ import com.cloudcomputing.dimayor.model.Team;
 import com.cloudcomputing.dimayor.dao.PersistenceManager;
 
 public class TeamDAO {
+	
+	private EntityManager em;
+	
+	public TeamDAO() {
+		em = PersistenceManager.getEntityManager();
+	}
 
 	public boolean addTeam(Team team) {
 
 		boolean added = true;
 
-		EntityManager em = PersistenceManager.getEntityManager();
+		
 		em.getTransaction().begin();
 		em.persist(team); // cascades the tool & skill relationships
+		em.flush();
 		em.getTransaction().commit();
-		em.close();
 
 		return added;
 	}
 
 	public List<Team> getAllTeams() {
 		
-		EntityManager em = PersistenceManager.getEntityManager();
+		
 		em.getTransaction().begin();		
 
 		List<Team> teams = null;
@@ -39,14 +46,14 @@ public class TeamDAO {
 			teams = new ArrayList<Team>();
 		}
 
+		em.flush();
 		em.getTransaction().commit();
-		em.close();
 
 		return teams;
 	}
 
 	public Team getTeam(Integer id) {
-		EntityManager em = PersistenceManager.getEntityManager();
+		
 		em.getTransaction().begin();
 
 		Team team = null;
@@ -59,8 +66,8 @@ public class TeamDAO {
 			team = null;
 		}
 
+		em.flush();
 		em.getTransaction().commit();
-		em.close();
 
 		return team;
 	}
@@ -68,12 +75,11 @@ public class TeamDAO {
 	public boolean editTeam(Team team) {
 
 		boolean edited = true;
-
-		EntityManager em = PersistenceManager.getEntityManager();
+		
 		em.getTransaction().begin();
 		em.merge(team); // cascades the tool & skill relationships
+		em.flush();
 		em.getTransaction().commit();
-		em.close();
 
 		return edited;
 	}
@@ -81,12 +87,13 @@ public class TeamDAO {
 	public boolean deleteTeam(Team team) {
 
 		boolean deleted = true;
+		
 
-		EntityManager em = PersistenceManager.getEntityManager();
-		em.getTransaction().begin();
+	    em.getTransaction().begin();
+		
 		em.remove(team); // cascades the tool & skill relationships
+		em.flush();
 		em.getTransaction().commit();
-		em.close();
 
 		return deleted;
 	}

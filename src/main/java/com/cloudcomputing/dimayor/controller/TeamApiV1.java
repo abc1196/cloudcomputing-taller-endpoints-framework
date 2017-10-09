@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.jdo.annotations.Transactional;
+
 import com.cloudcomputing.dimayor.dto.AddTeamDTO;
 import com.cloudcomputing.dimayor.dto.TeamDTO;
 import com.cloudcomputing.dimayor.dto.TeamsDTO;
@@ -92,10 +94,14 @@ public class TeamApiV1 {
 
 		teamLogic = new TeamLogic();
 		Team team = ModelUtils.mapObjectToDTO(teamDTO, Team.class);
+		Team oldTeam = teamLogic.getTeam(team.getId());
+		team.setCreated(oldTeam.getCreated());
+		team.setUpdated(new Date());
 		boolean edited = teamLogic.editTeam(team);
 		return new Message().setMessage("" + edited);
 	}
 
+	@Transactional
 	@ApiMethod(name = "deleteTeam", path = "team/{id}", httpMethod = ApiMethod.HttpMethod.DELETE)
 	public Message deleteTeam(@Named("id") Integer id) {
 
