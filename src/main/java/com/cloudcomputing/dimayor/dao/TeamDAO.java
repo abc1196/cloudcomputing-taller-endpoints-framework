@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import org.hibernate.Session;
-
 import com.cloudcomputing.dimayor.model.Team;
 
 public class TeamDAO {
@@ -17,22 +15,22 @@ public class TeamDAO {
 
 		boolean added = true;
 
-		Session session = PersistenceManager.openSession();
-		session.getTransaction().begin();
-		session.persist(team); // cascades the tool & skill relationships
-		session.getTransaction().commit();
-		session.close();
+		EntityManager em = PersistenceManager.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(team); // cascades the tool & skill relationships
+		em.getTransaction().commit();
+		em.close();
 
 		return added;
 	}
 
 	public List<Team> getAllTeams() {
-		//Session session = PersistenceManager.openSession();
-		EntityManager session = PersistenceManager.openSessionEM();
-		session.getTransaction().begin();		
+		
+		EntityManager em = PersistenceManager.getEntityManager();
+		em.getTransaction().begin();		
 
 		List<Team> teams = null;
-		TypedQuery<Team> query = session.createNamedQuery("Team.findAll", Team.class);
+		TypedQuery<Team> query = em.createNamedQuery("Team.findAll", Team.class);
 
 		try {
 			teams = query.getResultList();
@@ -40,18 +38,18 @@ public class TeamDAO {
 			teams = new ArrayList<Team>();
 		}
 
-		session.getTransaction().commit();
-		session.close();
+		em.getTransaction().commit();
+		em.close();
 
 		return teams;
 	}
 
 	public Team getTeam(Integer id) {
-		Session session = PersistenceManager.openSession();
-		session.getTransaction().begin();
+		EntityManager em = PersistenceManager.getEntityManager();
+		em.getTransaction().begin();
 
 		Team team = null;
-		TypedQuery<Team> query = session.createNamedQuery("Team.findById", Team.class);
+		TypedQuery<Team> query = em.createNamedQuery("Team.findById", Team.class);
 		query.setParameter("id", id);
 
 		try {
@@ -60,8 +58,8 @@ public class TeamDAO {
 			team = null;
 		}
 
-		session.getTransaction().commit();
-		session.close();
+		em.getTransaction().commit();
+		em.close();
 
 		return team;
 	}
@@ -70,11 +68,11 @@ public class TeamDAO {
 
 		boolean edited = true;
 
-		Session session = PersistenceManager.openSession();
-		session.getTransaction().begin();
-		session.merge(team); // cascades the tool & skill relationships
-		session.getTransaction().commit();
-		session.close();
+		EntityManager em = PersistenceManager.getEntityManager();
+		em.getTransaction().begin();
+		em.merge(team); // cascades the tool & skill relationships
+		em.getTransaction().commit();
+		em.close();
 
 		return edited;
 	}
@@ -83,11 +81,11 @@ public class TeamDAO {
 
 		boolean deleted = true;
 
-		Session session = PersistenceManager.openSession();
-		session.getTransaction().begin();
-		session.remove(team); // cascades the tool & skill relationships
-		session.getTransaction().commit();
-		session.close();
+		EntityManager em = PersistenceManager.getEntityManager();
+		em.getTransaction().begin();
+		em.remove(team); // cascades the tool & skill relationships
+		em.getTransaction().commit();
+		em.close();
 
 		return deleted;
 	}
