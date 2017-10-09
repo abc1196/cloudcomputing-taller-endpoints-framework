@@ -10,10 +10,9 @@ public class PersistenceManager {
 
 	public static EntityManager getEntityManager() {
 
-		if (entityManagerFactory == null) {
-
+		if (entityManagerFactory == null)
 			entityManagerFactory = Persistence.createEntityManagerFactory("Dimayor");
-		}
+
 		return entityManagerFactory.createEntityManager();
 	}
 
