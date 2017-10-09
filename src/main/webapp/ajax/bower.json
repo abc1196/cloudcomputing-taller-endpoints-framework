@@ -1,0 +1,31 @@
+{
+  "name": "ClienteAJAX",
+  "authors": [
+    "Sebastiandg7 <sebastiandg7@gmail.com>"
+  ],
+  "description": "Cliente AJAX para taller de protocolos y servicios",
+  "main": "index.html",
+  "keywords": [
+    "ajax",
+    "api",
+    "spark",
+    "java",
+    "javascript",
+    "cloud",
+    "icesi"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-beta",
+    "jquery": "^3.2.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Cliente Angular",
+  "authors": [
+    "Sebastiandg7 <sebastiandg7@gmail.com>"
+  ],
+  "description": "Cliente Angular JS para taller de protocolos y tecnologias",
+  "main": "index.html",
+  "keywords": [
+    "angular",
+    "js",
+    "java",
+    "spark",
+    "cloud",
+    "javascript"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap": "v4.0.0-beta"
+  }
+}
